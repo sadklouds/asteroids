@@ -47,6 +47,10 @@ def main():
             if player.collides(asteroid):
                 print("Game Over")
                 running = False
+            for bullet in shots:
+                if asteroid.collides(bullet):
+                    asteroid.kill()
+                    bullet.kill() 
 
 
         pygame.display.flip()
