@@ -22,7 +22,7 @@ def main():
 
     Player.containers = (updatable, drawable)
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-   
+    
 
     running = True
     while running:
@@ -36,6 +36,13 @@ def main():
 
         for item in updatable:
             item.update(dt)
+
+        for asteroid in asteroids:
+            #and object is type(Player)
+            if player.collides(asteroid):
+                print("Game Over")
+                running = False
+
 
         pygame.display.flip()
         
